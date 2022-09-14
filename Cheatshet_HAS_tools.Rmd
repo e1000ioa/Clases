@@ -1,5 +1,5 @@
 ---
-title: "Cheat Sheets 4 HAS tools"
+title: "Cheat Sheets for HAS tools"
 author: "Emilio Aguilar Cubilla"
 date: "2022-09-14"
 output:    
@@ -13,4 +13,51 @@ output:
 ---
 
 ## Cheat Sheet 1
+
+### Git
+
+  A free and Open source distributed version control system designed to handle coding projects, created by Linus Torvalds in 2005.
+  
+  Git allows and encourages you to have multiple local branches that can be entirely independent of each other. The creation, merging, and deletion of those lines of development takes seconds.
+  
+  User can Clone entire repositories in their own machines, every user essentially has a full backup of the main server. Each of these copies could be pushed up to replace the main server in the event of a crash or corruption. In effect, there is no single point of failure with Git unless there is only a single copy of the repository.
+
+### GitHub
+
+ GitHub is a website that offers a cloud-based Git repository hosting service.
+ 
+ Without GitHub, using Git generally requires a bit more technical savvy and use of the command line.
+ 
+### GitKraken 
+
+GitKraken Client is the most popular Git client (a software that uses Git) in the world and the only one that comes equipped with both a  graphical user interface and command line interface. It offers a convenient interface to perform collaborative tasks more comfortable. 
+
+### Python
+Python is a computer programming language often used to build websites and software, automate tasks, and conduct data analysis. Python is a general-purpose language, meaning it can be used to create a variety of different programs and isn’t specialized for any specific problems. This versatility, along with its beginner-friendliness, has made it one of the most-used programming languages today. A survey conducted by industry analyst firm RedMonk found that it was the second-most popular programming language among developers in 2021 
+
+
+### Conda
+Conda as a package manager helps you find and install packages. If you need a package that requires a different version of Python, you do not need to switch to a different environment manager, because conda is also an environment manager.
+
+### Vscode
+Visual Studio Code is a source code editor, with support of many languages. 
+
+### Jupyter
+The Jupyter Notebook App is a server-client application that allows editing and running notebook documents via a web browser. The Jupyter Notebook App can be executed on a local desktop requiring no internet access (as described in this document) or can be installed on a remote server and accessed through the internet.
+
+## Sources
+
+### Rmarkdown
+
+1. Format Gallery for the formats R package https://juba.github.io/rmdformats/#downcute
+
+### Content
+
+1. https://kinsta.com/knowledgebase/what-is-github/
+2. https://git-scm.com/
+3. https://www.youtube.com/watch?v=RiAeNSFjjLc
+4. https://www.coursera.org/articles/what-is-python-used-for-a-beginners-guide-to-using-python
+5. https://docs.conda.io/en/latest/
+
+
 

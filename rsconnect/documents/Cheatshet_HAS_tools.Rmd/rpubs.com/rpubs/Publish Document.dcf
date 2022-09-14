@@ -1,0 +1,11 @@
+name: Publish Document
+title:
+username:
+account: rpubs
+server: rpubs.com
+hostUrl: rpubs.com
+appId: https://api.rpubs.com/api/v1/document/942308/2479d199e6434160bc86cb282121faa9
+bundleId: https://api.rpubs.com/api/v1/document/942308/2479d199e6434160bc86cb282121faa9
+url: http://rpubs.com/emilioac/942308
+when: 1663192203.43423
+lastSyncTime: 1663192203.43423
