@@ -52,7 +52,9 @@ Solving
 dis_cmmonth <- RO_cm3month/Area_cm2
 
 et <- Precip - dis_cmmonth 
+
 et 
+
 #Et is 68.7 cm/month
 ```
 
