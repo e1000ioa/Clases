@@ -8,6 +8,7 @@ output: pdf_document
 ```{r setup, include=FALSE}
 #Libraries
 knitr::opts_chunk$set(echo = TRUE)
+library(tinytex)
 ```
 
 ## Problem 1
@@ -20,6 +21,7 @@ Area_ha <- 70.8 #ha
 inflow <- 1.5 #m3/s
 outlow <- 1.25 #m3/s
 Storage_change <- 1 #m
+Storage_change_cm <- Storage_change*100 #m
 Precip <- 24 #cm
 
 #determine evaporation loss (in cm) for the lake
@@ -31,31 +33,29 @@ Area_cm2 <- Area_m2 * 10000
 #Volume of precipitation
 P_volume_cm3months <- Area_m2 * 1000 * Precip
 
-#Cubic pero second to cubic per month
-#Multiply the value of volum/time by 2.628e+12
-inflow_cm3month <- inflow * 2.628e+12
-outlow_cm3month <- outlow * 2.628e+12
-
-
 #Runoff
-RO_cm3month <- inflow_cm3month - outlow_cm3month
+RO_m_s<- (inflow - outlow)/Area_m2 #m/second
+RO_m_s #runoff m/s
+
+#Turn to month
+RO_cm_month <- RO_m_s * 2.628e+8 #conversion from m/sec to cm/month
+RO_cm_month #runoff cm/month
+
+#Meters to cm
 
 ```
 
 Solving for et we will have
 
-$$ et(t) = p(t) + R0 $$
+$$ et(t) = p(t) + R0 - S$$
 Solving 
 ```{r}
 
-#Volume of flow (discharge) 
-dis_cmmonth <- RO_cm3month/Area_cm2
-
-et <- Precip - dis_cmmonth 
+et <- Precip + RO_cm_month - Storage_change_cm
 
 et 
 
-#Et is 68.7 cm/month
+#Et is 16.7 cm/month
 ```
 
 
@@ -100,6 +100,8 @@ Wc_m3 <- Wc_m * Area_pool_m2
 ```
 
 Considering the variables, the equation  should look like this
+
+![Pool](image_pool.png)
 
 $$ P-(R+G+E+T)=S $$
 Precipitation, runoff from ground (leak) and evaporation are the main inputs and outputs. 
