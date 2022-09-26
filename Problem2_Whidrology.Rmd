@@ -57,9 +57,30 @@ et
 
 #Et is 16.7 cm/month
 ```
-
-
 ## Problem 2
+
+**2. Show that an inch per hour of rain falling on an acre is approximately 1 ft3/sec. (5 pts)
+1 acre = 45360 ft2**
+
+```{r}
+
+x <- 1 #inch/hour rain
+
+acre <- 45360 #ft2
+
+#inch to feet 
+xfth <- x/12  #feet/hour
+
+xfts <- xfth/3600 #hour to seconds
+
+xfts3 <- acre*xfts
+
+xfts3 #the result is 1.05 ft3/sec
+```
+
+
+
+## Problem 3
 **3. A small swimming pool (15 ft wide x 20 ft long x 4 ft deep) is suspected of having a leak out of the bottom.  Measurements of rainfall, evaporation, and water level are taken daily for 10 days as shown in the table of “givens” below.  First, convert the rainfall in inches to rainfall in millimeters. Draw a picture of the scenario.  Define your inputs and your outputs for this control volume. Estimate the average daily leakage out of the swimming pool in m3 day-1 for this 10 day period. Knowing that there are about 7.5 gallons of water in a cubic foot, do you think this is a significant amount of water lost to leakage?  (15 pts)  Boxes in gray should not be filled in. Be careful of the units!**
 
 
