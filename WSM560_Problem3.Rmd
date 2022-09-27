@@ -1,0 +1,150 @@
+---
+title: "Problem 3 Watershed Hidrology"
+author: "Emilio Aguilar"
+date: '2022-09-27'
+output: pdf_document
+---
+```{r setup, include=FALSE}
+#Libraries
+knitr::opts_chunk$set(echo = TRUE)
+library(tinytex)
+```
+
+# 1 - Penman Potential Evapotranspiration
+
+## 1.1 Data
+```{r}
+Tavg_Aug2 <- 18.6 #Celsius 
+Tma_Aug2  <- 24.4 #Celsius
+Tmin_Aug2 <- 12.8 #Celsius
+Tavg_Aug1 <- 15.0 #Celsius
+Tavg_Aug3 <- 20.6 #Celsius
+VPD = 1.0927 #kPa
+U2 = 1.83 #ms1
+Rn = 10.63 #MJ m-2 day-1
+H = 213.4 #m
+lat = 41 #N
+
+```
+
+
+## 1.2 What is your calculated G? 
+G is the ground heat flux messured in MJ m^-1^ day^-1^
+
+$$ G = 4.2 * (T~{i+1} - T ~{i-1} )/Deltat $$
+
+```{r}
+#Select Variables
+Tbefore <- Tavg_Aug1
+Tafter <- Tavg_Aug3 
+time <- 3 - 1 
+
+#Solution
+G <- 4.2 * ((Tbefore - Tafter)/time)
+
+print(paste("The ground heat flux is",G,"MJ m-1 day-1"), quote = FALSE)
+```
+
+
+## 1.3 What is your calculated Lambda?    
+Lambda is the latent heat of vaporization in MJ kg^-1^, where T is average temperature (I assumed of the 3 days)
+
+$$ Lambda = 2.501 - 2361* 10^{-3} * T $$
+
+```{r}
+#Data
+AvgT <- mean(c(Tavg_Aug1,Tavg_Aug2,Tavg_Aug3))
+
+#Solution
+Lambda <- round(2.501 - 2361* 10^{-3} * AvgT,2)
+
+print(paste("The latent heat of vaporization is",Lambda,"MJ kg-1"), quote = FALSE)
+```
+
+## 1.3 What is your calculated P? 
+P is atmospheric pressure measure in kPA, H is the elevation above sea level in meters.
+
+$$P = 101.3 - 0.01055H$$
+
+```{r}
+#Data
+H <- H #elevation above sea level
+
+#Solution
+P <- round(101.3 - 0.01055 * H,2)
+
+print(paste("The atmospheric pressure is",P,"Kpa"), quote=FALSE)
+```
+
+## 1.4 What is your calculated Gamma?
+Gamma is the pyschrometric constant measured in kPa C^-1^, cp is the specific heat of water at constant pressure (0.001013 kJ kg-1 oC-1) and P is atmospheric pressure
+
+$$Gamma = C~{p} *P/0.622*Lambda $$
+
+```{r}
+#Data
+CP <- 0.001013 #kg-1 oC-1
+
+#Solution
+Gamma <- round(CP * P / 0.622 * Lambda,2)
+
+print(paste("The pyschrometric constant is",Gamma,"kPa C-1"), quote = FALSE)
+```
+
+## 1.5 What is your calculated Delta?
+Delta is the slope of the saturation vapor pressure - temperature curve, mesured in kPa C^-1^
+
+
+$$ Delta = 0.200(0.00738T + 0.8072)^7 - 0.00116 $$
+
+```{r}
+#Data
+#AvgT
+
+#Solution
+Delta= round(0.200 * (0.00738*AvgT + 0.8072)^7 - 0.00116,2)
+
+print(paste("The slope of curve is",Delta,"kPa C-1"), quote=FALSE)
+```
+
+
+## 1.6 What is your calculated PET?
+PET is potential evapotranspiration in mm day^-1
+
+```{r}
+#Solution 
+#First Part of the equation
+
+PET_1 <- Delta / (Delta + Gamma) * (Rn - G)
+PET_2 <- Gamma/ (Delta + Gamma) * 6.43 * (1 + 0.53 * U2) * VPD
+
+PET <- round((PET_1 + PET_2) / Lambda,2)
+
+print(paste("The potential evapotranspiration is",PET,"mm per day"), quote=FALSE)
+```
+
+
+# 2 - The Evaporation Pan
+
+## 2.1 Data
+
+## 2.2 Solution
+Evaporation is computed as the difference between observed levels, adjusted for any measured precipitation (or other added water).  
+
+If the level on day 1 was measured at 7.8 in and the level on day two was measured at 7.6 in, and precipitation on day 2 was 0.1 in, what was the evaporation from the pan?
+
+```{r}
+
+day1 <- 7.8 #inches
+day2 <- 7.6 #inches
+Preciptiation <- 0.1 #inches
+
+EV <- day1 - day2 + Preciptiation
+
+```
+
+```{r, echo=FALSE}
+print(paste("The evaporation from the pan was",EV,"inches"), quote = FALSE)
+```
+
+
