@@ -1,0 +1,16 @@
+---
+title: "Watershed Hydrology, Midterm 1, Fall 2022"
+author: "Emilio Aguilar"
+date: '2022-09-29'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Please show all work associated with calculations and circle your answers. If I cannot read your handwriting, I cannot grade your exam, so please write as legibly as possible. The total number of points on this exam is 120.
+
+
+1. For Question 1, answer the following questions (35 points total):
+

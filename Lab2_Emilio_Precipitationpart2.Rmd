@@ -1,0 +1,115 @@
+---
+title: "Watershed Hidology Problem2"
+author: "Emilio Aguilar"
+date: '2022-09-19'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Problem 1
+
+**1. Clear Lake has surface area of 708,000 m2 (70.8 ha).  For a given month, the lake has an inflow of 1.5 m3/s and an outflow of 1.25 m3/s.  A +1.0-m storage change, or increase in lake level was recorded.  If a precipitation gage recorded a total of 24 cm for this month, determine the evaporation loss (in cm) for the lake.  Assume that seepage (deep drainage) loss is negligible.  (10 pts)**
+
+```{r cars}
+Area_m2 <- 708000 #m2
+Area_ha <- 70.8 #ha
+inflow <- 1.5 #m3/s
+outlow <- 1.25 #m3/s
+Storage_change <- 1 #m
+Precip <- 24 #cm
+
+#determine evaporation loss (in cm) for the lake
+#Assume that deep drainage loss is negligible 
+
+#Area to cm2
+Area_cm2 <- Area_m2 * 10000
+
+#Volume of precipitation
+P_volume_cm3months <- Area_m2 * 1000 * Precip
+
+#Cubic pero second to cubic per month
+#Multiply the value of volum/time by 2.628e+12
+inflow_cm3month <- inflow * 2.628e+12
+outlow_cm3month <- outlow * 2.628e+12
+
+
+#Runoff
+RO_cm3month <- inflow_cm3month - outlow_cm3month
+
+```
+
+Solving for et we will have
+
+$$ et(t) = p(t) + R0 $$
+Solving 
+```{r}
+
+#Volume of flow (discharge) 
+dis_cmmonth <- RO_cm3month/Area_cm2
+
+et <- Precip - dis_cmmonth 
+et 
+#Et is 68.7 cm/month
+```
+
+## Problem 2
+**3. A small swimming pool (15 ft wide x 20 ft long x 4 ft deep) is suspected of having a leak out of the bottom.  Measurements of rainfall, evaporation, and water level are taken daily for 10 days as shown in the table of “givens” below.  First, convert the rainfall in inches to rainfall in millimeters. Draw a picture of the scenario.  Define your inputs and your outputs for this control volume. Estimate the average daily leakage out of the swimming pool in m3 day-1 for this 10 day period. Knowing that there are about 7.5 gallons of water in a cubic foot, do you think this is a significant amount of water lost to leakage?  (15 pts)  Boxes in gray should not be filled in. Be careful of the units!**
+
+```{r pressure, echo=FALSE}
+#First, convert the rainfall in inches to rainfall in millimeters
+file2 <- read.csv("Problem2_SwimingPool_mm.csv")
+knitr::kable((file2[, 1:5]), "simple")
+```
+
+```{r}
+#Area of Water
+Area_pool_ft2 <- 20 * 15 
+Area_pool_m2 <- Area_pool_ft2 / 10.764
+
+#Volume of Water
+Volume_pool_ft3 <- 20 * 15 * 4
+Volume_pool_m3 <- Volume_pool_ft3 / 35.315
+
+
+#Total Evaporation (mm/10day)
+EVt <-  12.7 + 2.54 + 12.7 + 2.54 + 12.7 + 12.7 + 2.54 + 12.7 + 12.7 + 12.7
+Evt_m <- EVt/1000
+#Ev in m3/10day
+Evt_m3 <- Evt_m * Area_pool_m2
+
+#Total Rain (mm/10day)
+Pt <- 20.32 + 71.12 + 60.96
+Pt_m <- Pt/1000
+#Rain in m3/10day
+Pt_m3 <- Pt_m * Area_pool_m2
+
+#Water level change (mm/10day)
+Wc <- 1219.2 - 1041.4
+Wc_m <- Pt_m/1000 
+#Water level charge in (m3/10day)
+Wc_m3 <- Wc_m * Area_pool_m2
+
+```
+
+Considering the variables, the equation  should look like this
+
+$$ P-(R+G+E+T)=  S $$
+Precipitation, runoff from ground (leak) and evaporation are the main inputs and outputs. 
+
+$$ P-(G+E)= S $$
+
+Solving for G (leak)
+$$  G = P - E - S $$
+
+```{r}
+#Solving
+
+Leak_10day <- Pt_m3 - Evt_m3 - Wc_m3
+Leak_1day <- Leak_10day/10
+
+Leak_1day #in m3/day, no significat amount. 
+```
+
