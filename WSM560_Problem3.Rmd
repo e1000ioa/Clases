@@ -148,3 +148,58 @@ print(paste("The evaporation from the pan was",EV,"inches"), quote = FALSE)
 ```
 
 
+## 3 - Budyko Curve
+
+a) How is the Penman-Monteith Equation related to the Budyko curve? Why would we would be interested in examining watersheds in the context of the Budyko curve?
+
+*The PET equation is used to draw the x axis in the Budyko Curve. Budyko curves makes us understand if the events in a watershed are natural occurring or if there is a climate-change element in them.*
+
+b) If we have a watershed on the Georgia coast with a large amount of precipitation and warm average temperatures over the curse of the year, where we would expect it to plot along the curve? Use the data just below to mark and label a point on the Budyko curve below. Remember the water balance equation: p = et + q.
+GA: Ave Temp(deg C)= 19.6  Precipitation(mm)=1,288  Q(mm)=312   PET(mm)=1121
+
+```{r}
+Avg_Temp <- 19.6 #Celsius
+Prep_GA <- 1288 #mm
+Q_GA <- 312 #mm
+PET_GA <- 1121 #mm
+
+#Metric of energy available 
+Energy_GA <- PET_GA/Prep_GA
+
+#ET
+ET_GA <- - Q_GA + Prep_GA
+AET_GA <- ET_GA/Prep_GA
+
+```
+
+```{r, echo=FALSE}
+print(paste("The AET is",round(AET_GA, 2)),quote = FALSE)
+print(paste("The Energy Available is",round(Energy_GA, 2)), quote = FALSE)
+```
+
+What about a watershed in the Colorado Rocky Mountains with a cold climate and significant precipitation at a elevation? Use the data just below to mark and label a point on the Budyko curve below.
+CO: Ave Temp(deg C)=-1.6  Precipitation(mm)= 973 Q(mm)= 803  PET(mm)=229
+
+```{r}
+Avg_Temp_CO <- -1.6 #Celsius
+Prep_CO <- 973 #mm
+Q_CO <- 803 #mm
+PET_CO <- 229 #mm
+
+#Metric of energy availabloe 
+Energy_CO <- PET_CO/Prep_CO
+
+#ET
+ET_CO <- - Q_CO + Prep_CO
+AET_P <- ET_CO/Prep_CO
+
+```
+
+```{r, echo=FALSE}
+print(paste("The AET is",round(AET_P, 2)),quote = FALSE)
+print(paste("The Energy Available is",round(Energy_CO, 2)), quote = FALSE)
+```
+
+c.) Based on where these two watersheds plot on the Budyko what does it tell us about which factors are limiting ET in the system (explain both the Georgia cost and Colorado points)? 
+
+*In the plot in Georgia, there is a lot radiation available to use and also a lot of water, evepotraspiration is limited by energy . Meanwhile, at the Colorado ecosystem, the ET is also greatly limited by energy but it also limted by water. *
