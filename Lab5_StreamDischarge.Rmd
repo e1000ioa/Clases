@@ -1,0 +1,19 @@
+---
+title: 'Lab 5: Stream Discharge'
+author: "Emilio Aguilar"
+date: '2022-10-07'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+#Libraries
+
+```
+
+
+### 2. Develop a rating curve (stage discharge relationship) using the data from the USGS gaging station for the Santa Cruz River. The data is available in an excel file in D2L, under the “Labs” folder, and titled, “Santa Cruz River gage 08118_100718.” This data set is from August 1 to October 8, 2018 and encompasses the Monsoon season. The gauge depth should be on the x-axis and the discharge should be on the y-axis. Please include units in your axis. ***We will go over this in class during the Thursday lecture.****
+
+### 3. Using the same dataset, create a hydrograph. A hydrograph is a graphical representation of stream discharge through time. In this case, the hydrograph is only from August 1 to October 8, 2018. Please include units in your axis. ***We will go over this in class during the Thursday lecture.****
+
