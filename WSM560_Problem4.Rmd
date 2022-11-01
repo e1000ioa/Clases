@@ -129,4 +129,45 @@ plot(df$`Time(hours)`,df$`Infiltration Rate (inc/hour)`, main="Infiltration Capa
 
 ## 4. Determine the Phi index of the figure below if the runoff depth was (a) 5.6 inches of rainfall over the watershed area and (b) 6.5 inches over the watershed area.  Make sure to draw in the Phi index on the graph below and label the line for (a) and (b).  (10 pts)
 
+
+```{r}
+#Data
+ri_1 <- 0.4 #rain intensit 1 inch/hr
+ri_2 <- 0.5 #rain intensit 1 inch/hr
+ri_3 <- 0.7 #rain intensit 1 inch/hr
+ri_4 <- 0.9 #rain intensit 1 inch/hr
+ri_5 <- 0.3 #rain intensit 1 inch/hr
+ri_6 <- 0.2 #rain intensit 1 inch/hr
+
+#Try all the Phi zones
+phi <- 0.4 
+PhiIndex1 <- 6*(ri_1-phi) + 2*(ri_2-phi) + 4*(ri_3-phi) + 2*(ri_4-phi) + 4*(ri_5-phi) + 2*(ri_6-phi)
+print(PhiIndex1)
+
+phi <- 0.1
+PhiIndex2 <- 6*(ri_1-phi) + 2*(ri_2-phi) + 4*(ri_3-phi) + 2*(ri_4-phi) + 4*(ri_5-phi) + 2*(ri_6-phi)
+print(PhiIndex2)
+
+phi <- 0.2
+PhiIndex2 <- 6*(ri_1-phi) + 2*(ri_2-phi) + 4*(ri_3-phi) + 2*(ri_4-phi) + 4*(ri_5-phi) + 2*(ri_6-phi)
+print(PhiIndex2) 
+
+phi <- 0.13
+PhiIndex2 <- 6*(ri_1-phi) + 2*(ri_2-phi) + 4*(ri_3-phi) + 2*(ri_4-phi) + 4*(ri_5-phi) 
+print(PhiIndex2) 
+
+phi <- 0.15
+PhiIndex2 <- 6*(ri_1-phi) + 2*(ri_2-phi) + 4*(ri_3-phi) + 2*(ri_4-phi) + 4*(ri_5-phi) 
+print(PhiIndex2)
+
+```
+
+
+```{r, echo=FALSE}
+print(paste("a) The Phi index for 5.6 inches of rainfall is 0.2"),quote = FALSE)
+print(paste("b) The Phi index for 6.5 inches of rainfall is 0.15"),quote = FALSE)
+```
+```
+
+
 ![Problem 4](images/ProblemSet4_Q4.png){width=60%}
