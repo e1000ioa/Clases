@@ -5,8 +5,9 @@ date: '2022-09-29'
 output: pdf_document
 ---
 
-```{r setup, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(janitor)
 ```
 
 Please show all work associated with calculations and circle your answers. If I cannot read your handwriting, I cannot grade your exam, so please write as legibly as possible. The total number of points on this exam is 120.
