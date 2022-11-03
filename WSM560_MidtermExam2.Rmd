@@ -14,12 +14,17 @@ library(janitor)
  a. Before and after removal of trees in a forested watershed. Explain why there are differences (i.e. what is the mechanism?). (5 pts)
   b. Increase in development in a watershed (e.g. increase in man-made structures). (5 pts)
 
-*a) Trees are the straws of the landscape, moving water from the ground to the atmosphere thanks to hydraulic conductivity, moving the mass water from more to less. If land cover change from forest to agriculture , we can expect less evapotranspiration than forest but still some. Runoff would be greater with no forest, which will make peak flow greater*
+*a) Trees are the straws of the landscape, they move water from the ground to the atmosphere thanks to hydraulic conductivity, moving the mass water from more to less. On average, infiltration is greater with dense vegetation. Supposing the a lost land cover went to agriculture, we can expect less evapotranspiration and infiltration than forest, so runoff would be greater, which will make peak flow greater*
 
-*b) Man made structures would removed the evapotranspiration from crops, and impede infiltration of water. This will make the peak flow even greater than in the former example.*
+*b) Man made structures would  compleatly removed the evapotranspiration from most plants, and impede infiltration of water. This will make the peak flow even greater than in the former example.*
 
 ### 2.  Precipitation events may or may not result in ponding of water and overland flow at the surface. Explain under what conditions ponding does occur (and can lead to flooding) and describe the two mechanisms by which it occurs. (10 pts)
 
+*Pounding depends on the rate of rainfall and soil infiltration, this can happen because of this two scenarios:*
+
+* *1) Rainfall Intensity > Infiltration: Runoff starts when the infiltration capacity has been overdrive,  water in excess moves out of the catchment area as stream flow or can later be stored or evaporated*
+
+* *2) Hydraulic Conductivity < Rain Intensity <  Infiltration: Soils with high hydraulic conductivity have greater infiltration rates and less runoff (because of  soil pores size and distribution). Water flows not only because of gravity, but because of soil suction. When the water content increases soil suction increase, up to the point when water soil reach saturation*
 
 
 ### 3. Draw a hydrograph. Define the components: volume, peak flow, rising limb, and falling limb.   Define axis with units (10 pts).
@@ -96,25 +101,29 @@ print(paste("The discharge in mm/sec is",format(discharge2_5, big.mark=",", nsma
 
 ### 6. Describe the Tarrawarra experiment of Greyson et al., (1997).  Use figures, arrows, lines, and labels as necessary to refer to the main findings of Greyson et al. study.  What were the two preferred states that Greyson et al. used to describe their findings? (10 pts).
 
-*The experiment of Greyson et al modeled the soil wetting pattern in a catchment.  There are two prefer states, a dry soil state and a wet state. Dry soil refers to the state where evapotranspiration is greater than precipitation, typically found during the summer months. The wet state happens primary in winter when the precipitation is greater than evapotranspiration.*
+*The experiment of Greyson modeled the soil wetting pattern in a catchment.  There are two prefer states, a dry soil state and a wet state. Dry soil refers to the state where evapotranspiration is greater than precipitation, typically found during the summer months. The wet state happens primary in winter when the precipitation is greater than evapotranspiration.*
 
-*In the wet state, lateral water movement prevail, are not locally control because they follow capillary forces at any point in the catchment. This means that in wet conditions, water would move not following any other pattern but the physical elements of that that specific point in the catchment. That is why sketch A shows no pattern*
+*In the wet state, lateral water movement prevail, they are not locally control because they follow the capillary forces at any point in the catchment. This means that in wet conditions, water would move not following any other pattern but the physical elements of that that specific point in the catchment. That is why sketch A shows no pattern*
 
 *In the dry state, vertical movement prevail, is locally control because it follows the topography gravitational forces. In the sketch B, we can see that the water moisture clearly follows the patter of a river. The soils are more wet in the bottom of the catchment, and more dries up as the elevation goes up*
 
-![Greyson Experiment](images/Midterm2_Q6.jpeg){width=40%}
+![Greyson Experiment Skecht](images/Midterm2_Q6.jpeg){width=40%}
 
 \newpage
-
-
 
 ### 7. Regional watershed managers (in this case, me) recently constructed this flood frequency plot for the Little Colorado River. (15 pts)
 
 a) What flow has a 50 year return interval? Please draw lines on the graph of how you calculated this.
 
+*The flow would be around 1900 cfs*
+
 b) What is the probability of peak flow exceeding 10,000 cfs?
 
+*The probabiltiy  would be near 1.5 to 1%*
+
 c) What is the probability of peak flow NOT exceeding 10,000 cfs?
+
+*the probability is 99% - 98.5%*
 
 ![Flood Frequency Plot](images/Midterm2_Q7.png){width=40%}
 
@@ -135,8 +144,9 @@ c) What is the probability of peak flow NOT exceeding 10,000 cfs?
 
 ### 10. What was your favorite lecture and why? (5 pts)
 
-*My favorite part of every lecture are the photographs at the begining, they are not only beautiful, but they serve as stage for the whole lecture. The lectures that blown my mind where the two water worlds, and the Greyson experiment, I could have never guess that water behaves so different acording to the medium they are and the time it passed*
+*My favorite part of every lecture are the photographs at the beginning, they are not only beautiful, but they serve as stage for the whole lecture. The lectures that blown my mind where the two water worlds, and the Greyson experiment, I could have never guess that water behaves so different with time*\
+\
+\
 
-
-I promise that I have not asked nor received help from anyone on this final. _______________
+**I promise that I have not asked nor received help from anyone on this final. _______________**
 								
