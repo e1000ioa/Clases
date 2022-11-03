@@ -1,0 +1,10 @@
+---
+title: "WSM560 Midterm Exam 2"
+author: "Emilio Aguilar"
+date: '2022-11-03'
+output: pdf_document
+---
+
+### 1. Land use and land cover can have a significant impact of streamflow response. Discuss the relationship between peak flows and:
+### a. Before and after removal of trees in a forested watershed. Explain why there are differences (i.e. what is the mechanism?). (5 pts)
+###  b. Increase in development in a watershed (e.g. increase in man-made structures). (5 pts)
