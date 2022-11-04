@@ -105,7 +105,7 @@ print(paste("The discharge in mm/sec is",format(discharge2_5, big.mark=",", nsma
 
 *In the wet state, lateral water movement prevail, they are not locally control because they follow the capillary forces at any point in the catchment. This means that in wet conditions, water would move not following any other pattern but the physical elements of that that specific point in the catchment. That is why sketch A shows no pattern*
 
-*In the dry state, vertical movement prevail, is locally control because it follows the topography gravitational forces. In the sketch B, we can see that the water moisture clearly follows the patter of a river. The soils are more wet in the bottom of the catchment, and more dries up as the elevation goes up*
+*In the dry state, vertical movement prevail, is locally control because it follows the topography/gravitational forces. In the sketch B, we can see that the water moisture clearly follows the patter of a river. The soils are more wet in the bottom of the catchment, and more dries up as the elevation goes up*
 
 ![Greyson Experiment Skecht](images/Midterm2_Q6.jpeg){width=40%}
 
@@ -125,7 +125,7 @@ c) What is the probability of peak flow NOT exceeding 10,000 cfs?
 
 *the probability is 99% - 98.5%*
 
-![Flood Frequency Plot](images/Midterm2_Q7.png){width=40%}
+![Flood Frequency Plot](images/Midterm2_Q7.png){width=60%}
 
 ### 8. Which line is the aggregated soil, and which is the compacted soil? Please label and explain why these two soil textures have different soil water content-suction relationships. (10 pts)
 
