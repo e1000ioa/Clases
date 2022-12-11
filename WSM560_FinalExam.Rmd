@@ -46,7 +46,38 @@ a. What is the total **volume** of rain over the watershed? (Report your answer 
 
 b. What is the total **volume** of runoff from the watershed? (Report your answer in acre-ft.)
 
+
+```{r Problem 2}
+
+Area_2 <- 25 #miles2
+Prepipitation_2 <- 0.25 #inch 
+Infiltration_2 <- Prepipitation_2*(1/3) #inch
+RunOff_2 <- Prepipitation_2 - Infiltration_2 #inch
+
+#B = Total volume of Rain Over Watershed, transform inches to miles
+Precipitation_miles3_2 <- (Prepipitation_2/63360) * Area_2
+
+#Transform cubic miles to Acre-ft
+Precipitation_acreft_2 <- Precipitation_miles3_2*3.379e+6
+
+# A = Total volume runoff from the watershed, transform inches to miles
+RunOff_miles3_2 <- (RunOff_2/63360) * Area_2
+
+#Transform runoff to Acre-ft 
+RunOff_acreft_2 <- RunOff_miles3_2*3.379e+6
+
+```
+
+```{r, echo=FALSE}
+
+print(paste("a = The volume of rain over the watershed is",round(Precipitation_acreft_2,1),"acre-f"), quote = FALSE)
+
+print(paste("b = The volume of runoff over the watershed is",round(RunOff_acreft_2,1),"acre-f"), quote = FALSE)
+```
+
 c. If some of the native vegetation in the watershed is removed and replaced with a new housing development, would you expect the runoff to increase or decrease? Explain your answer using specific examples
+
+*If we model that there is no difference in the precipitation after the land use change, evapotranspiration is unknown, and there is no management strategies that would keep infiltration at a similar rate, the run off will increase. When deep rotted vegetation is replaced by shallow turf and miles of concrete and roofs, rain will inevitably pour thru the streets at higher rates.*
 
 \newpage 
 
@@ -54,7 +85,22 @@ c. If some of the native vegetation in the watershed is removed and replaced wit
 
 <center>
 ![Hidrologic Fluxes](images/Final_Question3.png){width=70%}
-</center>
+</center> 
+
+*Evaporation: Water in the earth surface is bombarded by solar radiation, resulting in temperature increases. With enough latent heat, water change states and becomes vapor and moves in to the atmosphere. How many molecules enter the atmosphere depends on the vapor pressure, witch increases non-linearly with temperature.*
+
+*Transpiration: Inside plants, capillary forces in the xylem breaks the force of gravity and transports water from the lithosphere to the atmosphere. Transpiration rates depends on the weather and plant biology. Radiation, Temperature, Wind and Humidity influences how much water gets to be pumped by the atmosphere. As a form of resistance, plants have evolved different water use adaptions that can subdue the force of physics, like stomachs aperture regulation and changes in time of respiration cycles.*
+
+*Precipitation: The Temperature influence the amount of room that water vapor has in the atmosphere. There is more room when the air is warm, and less room when the air is cold, when the atmosphere reaches high levels of humidity, it falls to the earth. Before falling, molecules interacts with each other, the temperature and  other particles to form different types of precipitation; rain, snow, hail and drizzle among others.*
+
+*Surface Runoff: When water hits the ground, some of it gets inside the soil layers, the excess moves thru the surface following gravitational forces. Soil Saturation, surface permeability and topography greatly affects runoff. Runoff can shape the topography by carrying sediments in the way of filling rivers, lakes and oceans*
+
+*Infiltration: Before the soil saturates, some water gets to flow inside the soil layers. Infiltration depends on soil texture, water content and land use. The bigger the pores between soil particles, the more water moves in less time. Permeability depends on land use, deep roded vegetation allows for more infiltration than no vegetation or many human structures.*
+
+*Ground Water flow: Infiltrated water generates streamflow inside the soil that follows the topography of the land. Inside the soil are many obstacles that makes the flow slower than surface flow, and depends of gradients of pressure inside the soil. Water pressure and the spaces between soil particles and rocks influences the flow, the flow stops once the mechanical energy is lost, adding volume to aquifers and surface water bodies*
+
+\newpage
+
 
 ## 4. In one of the first lectures from class, we discussed the 21 major watersheds within the United States. Furthermore, we discussed the standardized method in which ‘Hydrologic Units Codes’ are used to represent the scale of these different watersheds. What is the **6-digit Hydrologic Unit Code** for the Santa Cruz River Basin near Tucson? Please provide the website link in which you found this information. **5 points**
 
