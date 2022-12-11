@@ -1,0 +1,128 @@
+---
+title: "Watershed Hydrology - WSM560"
+subtitle: "Final Exam  - Fall 2022"
+author: "Emilio Aguilar Cubilla"
+date: "2022-12-12"
+output: pdf_document
+---
+
+```{r setup and libraries, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(janitor)
+```
+
+## 1. A standard Class A Evaporation Pan (diameter 47.5 inches) begins the month of June with 10 inches of water in it.  At the end of June, the pan only has 5 inches in it.  Note that it also rained 2 inches in June.  Knowing the density of water is 1000 kg/m3, what would you say is the closest estimate for the **mass** of water lost from the pan in the month of June? **5 points**
+
+```{r}
+diam_1 <- 41.5 #inches
+JuneA_1 <- 10 #inches, begging of month
+JuneZ_1 <- 5 #inches, end of month
+JunePrecip_1 <- 2 #inches, june precipitation 
+Wden_1 <- 1000 #kg/m3, water density 
+
+#Find the EV in inches
+EV_1 <- JuneA_1 - JuneZ_1 + JunePrecip_1
+
+#Find Water Volume at the end of June
+Vol_in3_1 <- 3.14 * (diam_1/2)^2 * EV_1 #in3, Volume of cylinder = Pi * r2 * h
+
+#Transform cubic inches to cubic meters
+Vol_m3_1 <- Vol_in3_1/61020 
+
+#How much in Kg?
+Mass_kg_1 <- Vol_m3_1*1000 #Density = mass/volume
+
+```
+
+```{r, echo=FALSE}
+
+print(paste("The water mass lost in June is",round(Mass_kg_1,2),"kg"), quote = FALSE)
+
+```
+
+## 2. A watershed has an area of 25 miles2. A rain event of 0.25 inch falls on that watershed. One-third of that rain infiltrates into the ground, and the rest becomes runoff. **15 points**
+
+a. What is the total **volume** of rain over the watershed? (Report your answer in acre-ft.)
+
+b. What is the total **volume** of runoff from the watershed? (Report your answer in acre-ft.)
+
+c. If some of the native vegetation in the watershed is removed and replaced with a new housing development, would you expect the runoff to increase or decrease? Explain your answer using specific examples
+
+\newpage 
+
+## 3. In the space below, describe the hydrologic cycle and all its components in 3-4 sentences.  Then, in the following image, label the arrows showing the hydrologic fluxes using the letter in the key provided. **20 points**
+
+<center>
+![Hidrologic Fluxes](images/Final_Question3.png){width=70%}
+</center>
+
+## 4. In one of the first lectures from class, we discussed the 21 major watersheds within the United States. Furthermore, we discussed the standardized method in which ‘Hydrologic Units Codes’ are used to represent the scale of these different watersheds. What is the **6-digit Hydrologic Unit Code** for the Santa Cruz River Basin near Tucson? Please provide the website link in which you found this information. **5 points**
+
+\newpage
+
+## 5. A soil retention curve examines the relationship between soil water content and soil water potential. Explain why the curve is different for when soils become more wet (wetting) compared to when they dry (drying). **10 points**
+<center>
+![Soil Retention Curve](images/Final_Question5.png){width=50%}
+</center>
+
+\newpage
+
+## 6.  In class, we have often used publicly available data from the US Geological Society (USGS) in our labs and problem sets. You have learned how to navigate the USGS website and to access data. For this assignment, please use the USGS website to answer the following questions (you must find the website yourself). **25 points**
+
+a) For the San Pedro River near Tombstone, AZ (USGS gage 09471550), download the peak stream discharge data for the time period available (1967-2015). Using this dataset, construct a Probability of Exceedance Plot in Excel and **insert the figure in your answer**. You may recall that the plot has the “Annual Exceedance Probability (expressed as %) on the x-axis and “Annual Peak Discharge” (expressed as CFS) on the y-axis. Also, remember to express both your x- and y-axis in log scale so that your relationship is relatively linear. Please label your axis clearly. **(15 pts)**
+
+b) What is the return period of a 10,000 cfs flood? **(5pts)**
+
+c) Estimate the magnitude (expressed as cfs) of a 50 year flood. **(5pts)**
+
+\newpage
+
+## 7. You have been working with a contractor that needs to help a developer planning to build a residential neighborhood in Sahuarita that is concerned about overland flow.  Your job is to get a handle on the infiltration capacity of the soil.  Your field work has resulted in the table below.  You also have estimated an average initial rate of infiltration at 0.7 cm hr-1 with an average final capacity of 0.5 cm hr-1.  Use Horton’s equation (with an empirical constant of 0.1 hr-1) to estimate the infiltration capacity at t = 30 min, 1 hr, 1.5 hr, 2 hr, and 2.5 hr, 3 hr, and 3.5 hr as in the table below. With this information, determine the excess of rainfall (runoff) in cm hr-1. What is the average ratio of runoff to rainfall for the storm that you used in your fieldwork?  Should the developer be concerned?  Explain why or why not. **20 points**
+
+```{r Table Question 7, echo=FALSE}
+
+df_7 <- data.frame(matrix(ncol = 4, nrow = 7))
+x7 <- c("Time (hr)", "Rainfall Intensity (cm hr-1)", "Infiltration (cm hr-1)", "Runoff (cm hr-1)")
+colnames(df_7) <- x7
+
+
+df_7$`Time (hr)`<- c("0 - 0.5", "0.5 – 1", "1 – 1.5", "1.5 – 2", "2 – 2.5", "2.5 – 3", "3 – 3.5")
+
+df_7$`Rainfall Intensity (cm hr-1)`<- c(1.0, 0.7, 2.0, 2.5, 2.8, 1.5, 0.5)
+
+#df_7$`Infiltration (cm hr-1)` <- c()
+
+#df_7$`Runoff (cm hr-1)` <- c()
+
+knitr::kable(adorn_totals(df_7, where = "row", fill = "-"))
+```
+
+\newpage
+
+## 8. Two tensiometers are installed into unsaturated soil to determine the direction of unsaturated water flow. Tensiometer A measures pressure head PhiA at a depth of 20 cm, and tensiometer B measures pressure head PhiB at a depth of 60 cm.  The following results are obtained for three different treatments (1 through 3). **20 points**
+
+```{r Table Question 8, echo=FALSE}
+
+df_8 <- data.frame(matrix(ncol = 4, nrow = 3))
+x8 <- c("Treatment", "PhiA(cm)", "PhiB(cm)", "Flow Direction")
+colnames(df_8) <- x8
+
+
+df_8$`Treatment`<- c(1,2,3)
+
+df_8$`PhiA(cm)`<- c(-123,-211,-9)
+
+#df_8$`Flow Direction` <- c()
+
+
+knitr::kable(adorn_totals(df_8, where = "row", fill = "-"))
+
+```
+Briefly describe a tensiometer. Draw these scenarios in the space below, **including your reference point**. Determine the flow direction under each treatment (A to B or B to A). 
+
+
+
+\
+\
+
+**I promise that I have not asked nor received help from anyone on this final. _______________**

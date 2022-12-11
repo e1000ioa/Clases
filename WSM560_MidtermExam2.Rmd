@@ -50,6 +50,8 @@ a. What is the total cross sectional area (m2)
 b. What is the Discharge for the cross section (m3/sec)?
 c. If the watershed is 0.1 square kilometers what is the discharge in mm/sec? 
 
+Horton's equation
+$$f(t) = fc + (fo - fc)e^{-kt}$$
 
 ```{r, echo=FALSE}
 
